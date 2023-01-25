@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LogisticsApp</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo_title">
+            <img src="./imgs/cargo-logo2.png" alt="" class="logo">
+            <h1 class="title">Cargo4You</h1>
+            <div class="nav_btns_container">
+                <ul class="nav_btns">
+                    <a href="#couriers_info" class="header_link">
+                        <li>Couriers</li>
+                    </a>
+                    <a href="#pricing" class="header_link">
+                        <li>Pricing</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="hero_section">
+            <img src="./imgs/" alt="" class="hero_pic"  id="about">
+            <div class="section_header">
+                <h2 id="pricing">About Us</h2>
+            </div>
+            <div class="section_text">
+                <h4>Cargo4You is an international transport and logistics company, offering our clients customised solutions with high quality unique service.</h5><br><br>
+                <p>We specialize in ocean freights, including in Ro-Ro shipments to Africa, Australia, Central and South America, the Middle and Far East, and others.<br><br>
+                A major advantage of this transportation mode is the minimal risk of damage involved. Quick loading and unloading help to increase the transmit time.<br><br>
+                No matter what kind of freight you need to send, or where it has to go, Cargo4You will make sure it arrives safely and on time. Our freight transport services include international and domestic shipping, end-to-end visibility to track your shipment, and flexible delivery times.<br><br>
+                At Cargo4You we work hand in hand with our clients so that their shipment always reaches its destination in the best possible way and within the specified timeframe.<br><br>
+                Cargo4You employs a team of highly trained staff, dependable personnel and offers a comprehensive list of services which meet your needs.<br><br>
+                We cover a lot of regions and over 760 cities and thus we make the perfect partner for you and your customers.<br><br>
+                Regions we cover :
+                <ul class="regions_list">
+                    <li>Mediterranean Sea</li>
+                    <li>Scandinavia</li>
+                    <li>Caribbean Sea</li>
+                    <li>Middle East</li>
+                    <li>Indian Ocean</li>
+                    
+                </ul>
+            </p>
+        </div>
+        <div class="section_container">
+            <div class="section_header">
+                <h2>Our Core Values</h2>
+            </div>
+            <p class="section_text core_values">The core values of Cargo4You are to provide <br><br> 
+                <span class="values">
+                Quality, Reliability and Innovation and Customer Satisfaction </span> <br><br>
+                Built around an organization which prides itself on teamwork and best practice; these values are what guide us. They set a clear path for us to follow, they help us to grow together with our valuable customers and they underline our spirit of success.</p>
+        </div>
+        <div class="section_container">
+            <!-- COURIERS -->
+            <div class="section_header">
+                <h2 id="couriers_info">Couriers Information</h2>
+            </div>
+            <div class="buttons_container">
+                <div class="button_area">
+                    <button class="show_all_couriers">Show all Couriers</button>
+                </div>
+                <div class="button_area">
+                    <input type="number" id="options_by_courier_id" placeholder="Enter Courier ID">
+                    <button class="show_options">Check Couriers' capacity</button>
+                </div>
+                <div class="button_area">
+                    <input type="text" id="courierName" placeholder="Name">
+                    <button class="add_courier_button">Add Courier</button>
+                </div>
+                <div class="button_area">
+                    <input type="number" id="courier_id_remove" placeholder="Enter Courier ID">
+                    <button class="delete_courier_button">Remove Courier</button>
+                </div>
+            </div>
+            <div class="courier_container">
+            </div>
+
+            <!-- CALCULATIONS -->
+            <div class="section_header">
+                <h2 id="pricing">Pricing</h2>
+                </div>
+                    <div class="buttons_container_pricing">
+                        <div class="button_area_pricing">
+                            <input type="number" id="calculations_by_courier_id" placeholder="Enter Courier ID">
+                            <button class="show_calculations">Pricing by Courier</button>
+                        </div>
+                        <div class="button_area_pricing">
+                            <input type="number" id="calculations_by_type" placeholder="0-Weight / 1-Dimensions">
+                            <button class="show_calculations_by_type">Offers by weight/dimensions</button>
+                        </div>
+                        <div class="button_area_pricing">
+                            <div class="package_details_header">Enter your package details and get a specific offer!</div>
+                            
+                            <input type="number" id="calculation_type" placeholder="0-Weight / 1-Dimensions">
+                            <input type="number" id="calculation_input" placeholder="Enter amount">
+                            <button class="show_specific_calculation">Get offer</button>
+                            <div class="package_details_details">Enter 0 for weight (kg) or 1 for dimensions (cm³), then enter the amount of your choice.</div>
+                        </div>
+                    </div>
+                <div class="pricing_container"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer_container">
+                <div class="footer_text">
+                    Cargo4You is an international transport and logistics company, offering our clients customised solutions with unique service and of high quality.
+                </div>
+                <div class="footer_img">
+                    <img src="./imgs/cargo-logo2.png" id="footer_img" alt="">
+                </div>
+                <div class="footer_btns">
+                    <ul class="footer__nav">
+                        <li class="footer__item">
+                          <a class="footer__link" href="#about">About Us</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="#couriers_info">Couriers</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="#">Contact Us</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            
+            <a
+            href="https://github.com/VlatCode"
+            class="footer__signature"
+            target="_blank"
+            >created by Vlatko Nikolovski</a>
+          </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
