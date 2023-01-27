@@ -230,7 +230,7 @@ function showCalculation(calculation) {
                 <h4>Courier ID: ${calculation.courierId}</h4>
                 <h4>Cost: ${calculation.cost}$</h4>
                 <br>
-                <button id="order_button">Make an order!</button>
+                <button>Make an order!</button>
             </div>
             `
             allCalculations += calculationElement;       
