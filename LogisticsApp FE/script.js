@@ -1,7 +1,6 @@
 // COURIERS
 // SHOW ALL COURIERS
 const couriersContainer = document.querySelector(".courier_container");
-
 const showAllCouriers = document.querySelector(".show_all_couriers");
 
 function displayCouriers(couriers) {
@@ -31,7 +30,7 @@ showAllCouriers.addEventListener('click', function() {
     getAllCouriers();
 })
 
-// VALIDATIONS BY COURIER ID
+// VALIDATIONS BY COURIER ID - "Check Couriers' capacity"
 const showOptionsButton = document.querySelector(".show_options");
 
 function displayOptions(options) {
@@ -67,7 +66,8 @@ function getOptionsByCourierId(id) {
 }
 
 showOptionsButton.addEventListener('click', function() {
-    getOptionsByCourierId(document.getElementById("options_by_courier_id").value);
+    var optionsByCourierId = document.querySelector("#options_by_courier_id").value;
+    getOptionsByCourierId(optionsByCourierId);
 })
 
 // ADD COURIER
@@ -87,14 +87,14 @@ function addCourier(courierName) {
     })
     .then(data => data.json())
     .then(response => console.log(response));
-    getAllCouriers();
 }
 
 addCourierButton.addEventListener('click', function() {
     addCourier(courierName.value);
+    couriersContainer.innerHTML += "Courier successfully added!";
 })
 
-// DELETE COURIER
+// REMOVE COURIER
 const deleteCourierButton = document.querySelector(".delete_courier_button");
 
 function deleteCourier(id) {
@@ -110,12 +110,13 @@ function deleteCourier(id) {
 }
 
 deleteCourierButton.addEventListener('click', function() {
-    var courierId = document.getElementById("courier_id_remove").value;
+    var courierId = document.querySelector("#courier_id_remove").value;
     deleteCourier(courierId);
+    couriersContainer.innerHTML += `Courier with ID ${courierId} successfully removed!`;
 })
 
 // CALCULATIONS
-// CALCULATIONS BY COURIER ID
+// CALCULATIONS BY COURIER ID - "Pricing by Courier"
 const pricingContainer = document.querySelector(".pricing_container");
 
 const showCalculationsButton = document.querySelector(".show_calculations");
@@ -149,23 +150,22 @@ function displayCalculations(calculations) {
 }
 
 function getCalculationsByCourierId(id) {
-    fetch(`http://localhost:5017/api/Couriers/calculationsByCourier/${id}`)
+    fetch(`http://localhost:5017/api/Calculations/calculationsByCourier/${id}`)
     .then(data => data.json())
     .then(response => displayCalculations(response));
 }
 
 showCalculationsButton.addEventListener('click', function() {
-    getCalculationsByCourierId(document.getElementById("calculations_by_courier_id").value);
+    getCalculationsByCourierId(document.querySelector("#calculations_by_courier_id").value);
 })
 
-// CALCULATIONS BY TYPE
+// CALCULATIONS BY TYPE - "See offers"
 const showCalculationsByTypeButton = document.querySelector(".show_calculations_by_type");
 
 function displayCalculationsByType(calculations) {
     let AllCalcsByType = '';
 
     calculations.forEach(calculation => {
-
         let calcType;
         let calcFrom;
         let calcTo;
@@ -196,6 +196,7 @@ function displayCalculationsByType(calculations) {
             <h4>Cost: ${calculation.cost}$</h4>
         </div>
         `
+
         AllCalcsByType += calculationElement;
     })
     
@@ -209,50 +210,40 @@ function getCalculationsByType(calculationType) {
 }
 
 showCalculationsByTypeButton.addEventListener('click', function() {
-    getCalculationsByType(document.getElementById("calculations_by_type").value);
+    getCalculationsByType(document.querySelector("#calculations_by_type").value);
 })
 
-// CALCULATIONS BY INPUTS
+// CALCULATIONS BY INPUTS - "Get offer"
 const showSpecificCalculation = document.querySelector(".show_specific_calculation");
+const calcWeight = document.querySelector("#input_weight");
+const calcHeight = document.querySelector("#input_height");
+const calcWidth = document.querySelector("#input_width");
+const calcDepth = document.querySelector("#input_depth");
 
-const calcType = document.querySelector("#calculation_type");
-const calculationInput = document.querySelector("#calculation_input");
-
-function showCalculation(calculations) {
+function showCalculation(calculation) {
     let allCalculations = '';
 
-    calculations.forEach(calculation => {
-        
-        let range;
-        let rangeWeight = `Weight range: ${calculation.from}kg - ${calculation.to}kg`;
-        let rangeDimensions = `Dimensions range: ${calculation.from}cm³ - ${calculation.to}cm³`;
-        if (calculation.calculationType == 0) {
-            range = rangeWeight;
-        } else {
-            range = rangeDimensions;
-        }
-
-        const calculationElement = `
-        <div class="item">
-            <h2>Pricing details:</h2>
-            <br>
-            <h4>Courier ID: ${calculation.courierId}</h4>
-            <h4>${range}</h4>
-            <h4>Cost: ${calculation.cost}$</h4>
-        </div>
-        `
-        allCalculations += calculationElement;
-    })
-    
+    const calculationElement = `
+            <div class="item">
+                <h2>Price:</h2>
+                <br>
+                <h4>Courier ID: ${calculation.courierId}</h4>
+                <h4>Cost: ${calculation.cost}$</h4>
+                <br>
+                <button id="order_button">Make an order!</button>
+            </div>
+            `
+            allCalculations += calculationElement;       
+   
     pricingContainer.innerHTML = allCalculations;
 }
 
-function getSpecificCalculation(calculationType, value) {
-    fetch(`http://localhost:5017/api/Calculations/calculationsByInputs/${calculationType}/${value}`)
+function getSpecificCalculation(weight, height, width, depth) {
+    fetch(`http://localhost:5017/api/Calculations/costByInputs/${weight}/${height}/${width}/${depth}`)
     .then(data => data.json())
     .then(response => showCalculation(response));
 }
 
 showSpecificCalculation.addEventListener('click', function() {
-    getSpecificCalculation(calcType.value, calculationInput.value);
+    getSpecificCalculation(calcWeight.value, calcHeight.value, calcWidth.value, calcDepth.value);
 })

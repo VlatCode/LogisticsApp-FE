@@ -19,8 +19,8 @@ body {
 }
 
 .container {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .logo_title {
@@ -37,8 +37,8 @@ body {
 }
 
 .title {
-    width: 50%;
-    height: 25vh;
+  width: 50%;
+  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,10 +49,10 @@ body {
 }
 
 .nav_btns {
-    width: 25%;
-    list-style: none;
-    text-decoration: none;
-    font-weight:bold;
+  width: 25%;
+  list-style: none;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .hero_pic {
@@ -61,23 +61,19 @@ body {
   border-bottom: 1px solid black;
 }
 .section_text {
-  padding: 15px;
+  padding: 30px;
 }
 
 .section_container {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .core_values {
-    display: inline-block;
-    font-size: 15px;
-    text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  text-align: center;
 }
 .values {
-    font-size: 20px;
-}
-
-.regions_list {
-    padding: inherit;
+  font-size: 25px;
 }
 
 .section_header {
@@ -87,7 +83,7 @@ body {
   align-items: center;
   padding: 5px;
   border-top: 1px solid black;
-  background-color:rgb(232, 247, 234);
+  background-color: rgb(232, 247, 234);
   font-size: 25px;
 }
 
@@ -128,22 +124,26 @@ body {
   justify-content: center;
   font-size: 20px;
 }
-
 .item h4 {
   font-size: 15px;
 }
 
 button {
-  font-size: 15px;
+  border-color: var(--color-primary);
+  padding: 7px;
+  border-radius: 10%;
+  font-size: 13px;
 }
 input {
   font-size: 15px;
-  color: black;
+  padding: 5px;
+  border-radius: 10%;
+  color: beige;
   background-color: var(--color-primary);
 }
-
 ::placeholder {
   color: beige;
+  font-size: 13px;
 }
 
 .buttons_container_pricing {
@@ -156,43 +156,43 @@ input {
 }
 .package_details_header {
   padding: 10px;
-  font-size: 17px;
+  font-size: 20px;
 }
-.package_details_details {
+.see_offers_info {
   font-size: 12px;
 }
 
 /* FOOTER */
 .footer {
-    background-color: var(--background-footer);
+  background-color: var(--background-footer);
 }
 .footer_container {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
 }
-
 .footer_text {
-    max-width: 25%;
-    display: flex;
-    align-items: center;
-    padding-right: 20px;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
 }
 
 #footer_img {
-    height: 40vh;
-    padding-right: 30px;
+  height: 40vh;
+  padding-right: 30px;
 }
 
 .footer_btns {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .footer__nav {
-    list-style: none;
+  list-style: none;
 }
-.footer__link, .header_link {
+.footer__link,
+.header_link {
   text-decoration: none;
 }
 .footer__link:hover {
