@@ -116,6 +116,7 @@ body {
   margin-bottom: 30px;
   border: 1px solid black;
   border-radius: 7%;
+  overflow:hidden;
 }
 .item h2 {
   display: flex;

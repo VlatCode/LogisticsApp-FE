@@ -228,7 +228,7 @@ function showCalculation(calculation) {
                 <h2>Price:</h2>
                 <br>
                 <h4>Courier ID: ${calculation.courierId}</h4>
-                <h4>Cost: ${calculation.cost}$</h4>
+                <h4>Cost: ${calculation.cost.toFixed(2)}$</h4>
                 <br>
                 <button>Make an order!</button>
             </div>
